@@ -77,25 +77,25 @@ export default function AuthModal() {
     }
   };
 
-  const inputClass = "w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-4 text-white outline-none placeholder:text-zinc-600 focus:border-orange-500 transition";
+  const inputClass = "w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-white outline-none sm:py-4 placeholder:text-zinc-600 focus:border-orange-500 transition";
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/80 p-3 sm:p-4 backdrop-blur-md"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) close();
       }}
     >
-      <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-[#111111] p-7 shadow-2xl shadow-orange-950/20">
+      <div className="relative my-auto w-full max-w-md max-h-[calc(100dvh-24px)] overflow-y-auto rounded-2xl border border-white/10 bg-[#111111] p-4 sm:rounded-3xl sm:p-7 shadow-2xl shadow-orange-950/20">
         <button
           onClick={close}
-          className="absolute right-5 top-5 rounded-xl border border-white/10 p-2 text-zinc-400 hover:text-white"
+          className="absolute right-3 top-3 rounded-xl sm:right-5 sm:top-5 border border-white/10 p-2 text-zinc-400 hover:text-white"
         >
           <X size={19} />
         </button>
 
-        <div className="mb-7 flex flex-col items-center text-center">
-          <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-orange-700 shadow-lg shadow-orange-600/20">
+        <div className="mb-5 flex flex-col items-center text-center sm:mb-7">
+          <div className="mb-4 flex h-14 w-14 items-center sm:mb-5 sm:h-16 sm:w-16 justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-orange-700 shadow-lg shadow-orange-600/20">
             {step === "phone" ? (
               <Phone size={29} className="text-white" />
             ) : (
@@ -107,7 +107,7 @@ export default function AuthModal() {
             TURBOPIZZA ACCOUNT
           </p>
 
-          <h2 className="mt-2 text-3xl font-black text-white">
+          <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">
             {step === "phone" ? "Xush kelibsiz!" : "Kodni tasdiqlang"}
           </h2>
 
@@ -119,7 +119,7 @@ export default function AuthModal() {
         </div>
 
         {step === "phone" ? (
-          <form onSubmit={sendCode} className="space-y-4">
+          <form onSubmit={sendCode} className="space-y-3 sm:space-y-4">
             <label className="block text-sm font-semibold text-zinc-300">
               Telefon raqam
             </label>
@@ -135,7 +135,7 @@ export default function AuthModal() {
             />
 
             <p className="text-xs text-zinc-600">
-              O'zbekiston telefon raqamini kiriting.
+              O&apos;zbekiston telefon raqamini kiriting.
             </p>
 
             {error && <p className="text-sm text-red-400">{error}</p>}
@@ -148,7 +148,7 @@ export default function AuthModal() {
             </button>
           </form>
         ) : (
-          <form onSubmit={verifyCode} className="space-y-4">
+          <form onSubmit={verifyCode} className="space-y-3 sm:space-y-4">
             <label className="block text-sm font-semibold text-zinc-300">
               6 xonali tasdiqlash kodi
             </label>
@@ -197,15 +197,16 @@ export default function AuthModal() {
               }}
               className="w-full py-2 text-sm font-semibold text-zinc-500 hover:text-white"
             >
-              Telefon raqamni o'zgartirish
+              Telefon raqamni o&apos;zgartirish
             </button>
           </form>
         )}
 
-        <div className="mt-6 border-t border-white/[0.07] pt-5 text-center text-xs text-zinc-600">
+        <div className="mt-5 border-t border-white/[0.07] pt-4 sm:mt-6 sm:pt-5 text-center text-xs text-zinc-600">
           Xavfsiz va qulay buyurtmalar — TurboPizza
         </div>
       </div>
     </div>
   );
 }
+

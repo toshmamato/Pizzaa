@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
@@ -159,7 +159,7 @@ export default function ProductDetailsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0c0c0c] px-4 pb-20 pt-8 text-white">
+    <main className="min-h-screen bg-[#0c0c0c] px-3 pb-14 pt-6 text-white sm:px-4 sm:pb-20 sm:pt-8">
       <div className="mx-auto max-w-7xl">
         <Link
           href="/"
@@ -169,10 +169,10 @@ export default function ProductDetailsPage() {
           Menyuga qaytish
         </Link>
 
-        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-14">
           <div className="relative">
             <div className="absolute inset-10 rounded-full bg-orange-500/15 blur-[90px]" />
-            <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#171717]">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-[30px] border border-white/10 bg-[#171717]">
               <img
                 src={product.image}
                 alt={product.name}
@@ -199,7 +199,7 @@ export default function ProductDetailsPage() {
               {product.description}
             </p>
 
-            <div className="mt-7 rounded-2xl border border-orange-500/20 bg-orange-500/[0.06] p-5">
+            <div className="mt-6 rounded-2xl border border-orange-500/20 bg-orange-500/[0.06] p-4 sm:mt-7 sm:p-5">
               <p className="text-sm text-zinc-400">Umumiy narx</p>
               <p className="mt-1 text-3xl font-black text-orange-400">
                 {formatPrice(unitPrice * quantity)}
@@ -211,19 +211,19 @@ export default function ProductDetailsPage() {
 
             {isPizza && (
               <div className="mt-8">
-                <h2 className="mb-4 text-lg font-bold">Pizza o'lchamini tanlang</h2>
-                <div className="grid grid-cols-3 gap-3">
+                <h2 className="mb-4 text-lg font-bold">Pizza o&apos;lchamini tanlang</h2>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   {sizes.map((item) => (
                     <button
                       key={item.label}
                       onClick={() => setSize(item.label)}
-                      className={`rounded-xl border px-3 py-4 text-center transition ${
+                      className={`rounded-xl border px-1 py-3 text-center transition sm:px-3 sm:py-4 ${
                         size === item.label
                           ? "border-orange-500 bg-orange-500/10 text-orange-400"
                           : "border-white/10 bg-[#171717] text-zinc-300 hover:border-orange-500/50"
                       }`}
                     >
-                      <span className="block text-lg font-black">{item.label}</span>
+                      <span className="block text-base font-black sm:text-lg">{item.label}</span>
                       <span className="mt-1 block text-xs text-zinc-500">
                         {item.difference === 0
                           ? "Asosiy narx"
@@ -242,7 +242,7 @@ export default function ProductDetailsPage() {
 
             {isPizza && (
               <div className="mt-8">
-                <h2 className="mb-4 text-lg font-bold">Qo'shimcha masalliqlar</h2>
+                <h2 className="mb-4 text-lg font-bold">Qo&apos;shimcha masalliqlar</h2>
                 <div className="space-y-3">
                   {extrasList.map((extra) => (
                     <label
@@ -269,7 +269,7 @@ export default function ProductDetailsPage() {
               </div>
             )}
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col items-stretch gap-3 min-[420px]:flex-row min-[420px]:items-center sm:gap-4">
               <div className="flex h-14 items-center gap-5 rounded-xl border border-white/10 bg-[#171717] px-4">
                 <button
                   onClick={() => setQuantity((value) => Math.max(1, value - 1))}
@@ -292,14 +292,14 @@ export default function ProductDetailsPage() {
 
               <button
                 onClick={handleAddToCart}
-                className="flex h-14 flex-1 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 px-6 font-black text-white shadow-lg shadow-orange-600/20 transition hover:-translate-y-1 hover:shadow-orange-600/30 active:scale-[0.98]"
+                className="flex h-14 w-full flex-1 items-center justify-center gap-3 min-[420px]:w-auto rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 px-6 font-black text-white shadow-lg shadow-orange-600/20 transition hover:-translate-y-1 hover:shadow-orange-600/30 active:scale-[0.98]"
               >
                 <ShoppingBag size={20} />
-                Savatchaga qo'shish
+                Savatchaga qo&apos;shish
               </button>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
+            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3 border-t border-white/10 pt-6">
               <div className="text-center">
                 <Truck className="mx-auto text-orange-400" size={22} />
                 <p className="mt-2 text-xs text-zinc-500">Yetkazib berish</p>
@@ -317,11 +317,11 @@ export default function ProductDetailsPage() {
         </div>
 
         {relatedProducts.length > 0 && (
-          <section className="mt-24">
+          <section className="mt-16 sm:mt-24">
             <h2 className="text-2xl font-black md:text-3xl">
               Yana <span className="text-orange-500">sizga yoqishi mumkin</span>
             </h2>
-            <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-7 sm:gap-5 lg:grid-cols-4">
               {relatedProducts.map((item) => (
                 <Link
                   key={item.id}
@@ -332,7 +332,7 @@ export default function ProductDetailsPage() {
                     src={item.image}
                     alt={item.name}
                     loading="lazy"
-                    className="h-44 w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-32 w-full object-cover sm:h-44 transition duration-500 group-hover:scale-105"
                   />
                   <div className="p-4">
                     <h3 className="font-bold group-hover:text-orange-400">

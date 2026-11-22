@@ -90,7 +90,7 @@ export default function HomeVisuals({ products = [] }) {
             </div>
             <div className="flex items-center gap-2 rounded-xl bg-orange-500/10 px-3 py-2 text-xs font-bold text-orange-400">
               <TrendingUp size={15} />
-              Jonli ma'lumot
+              Jonli ma&apos;lumot
             </div>
           </div>
 
@@ -122,3 +122,4 @@ export default function HomeVisuals({ products = [] }) {
     </section>
   );
 }
+

@@ -208,6 +208,7 @@ img {
   .delivery-bike, .delivery-arrived { animation: none !important; }
 }
 
+
 /* =========================================
    TurboPizza — Light / Dark Theme
 ========================================= */
@@ -223,6 +224,10 @@ img {
   color-scheme: dark;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 html.light {
   color-scheme: light;
 
@@ -230,35 +235,48 @@ html.light {
   --foreground: #24170f;
   --surface: #ffffff;
   --surface-secondary: #fff4e9;
-  --border: rgba(80, 45, 20, 0.12);
+  --border: rgba(80, 45, 20, 0.13);
   --muted: #76685e;
 }
 
-/* Main page */
 html.light body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
 }
 
-/* Common dark backgrounds */
-html.light [class*="bg-[#0c0c0c]"],
+/* Sahifa fonlari */
+html.light [class*="bg-[#080808]"],
 html.light [class*="bg-[#0b0b0b]"],
+html.light [class*="bg-[#0c0c0c]"],
 html.light [class*="bg-[#101010]"],
 html.light [class*="bg-[#111]"],
-html.light [class*="bg-[#111111]"],
+html.light [class*="bg-[#111111]"] {
+  background-color: var(--background) !important;
+}
+
+/* Kartalar va panellar */
 html.light [class*="bg-[#121212]"],
 html.light [class*="bg-[#141414]"],
 html.light [class*="bg-[#151515]"],
 html.light [class*="bg-[#171717]"],
-html.light [class*="bg-[#1c1c1c]"],
+html.light [class*="bg-[#191919]"],
 html.light [class*="bg-[#202020]"],
 html.light [class*="bg-[#222]"] {
   background-color: var(--surface) !important;
 }
 
-/* Text colors */
-html.light [class~="text-white"],
-html.light [class*="text-white/"] {
+/* Qo'shimcha fon ranglari */
+html.light [class*="bg-[#1c1713]"] {
+  background-color: #fff1e5 !important;
+}
+
+html.light [class*="bg-[#17251b]"] {
+  background-color: #eaf6ec !important;
+}
+
+/* Matn ranglari */
+html.light [class~="text-white"]:not([class*="bg-orange-"]),
+html.light [class*="text-white/"]:not([class*="bg-orange-"]) {
   color: var(--foreground) !important;
 }
 
@@ -267,19 +285,19 @@ html.light [class*="text-gray-"] {
   color: var(--muted) !important;
 }
 
-/* Borders */
+/* Chegaralar */
 html.light [class*="border-white/"],
 html.light [class*="border-zinc-"],
 html.light [class*="border-gray-"] {
   border-color: var(--border) !important;
 }
 
-/* Inputs */
+/* Input va form elementlari */
 html.light input,
 html.light textarea,
 html.light select {
   background-color: #ffffff;
-  color: #24170f;
+  color: var(--foreground);
   border-color: var(--border);
 }
 
@@ -288,7 +306,14 @@ html.light textarea::placeholder {
   color: #9b8c80;
 }
 
-/* Cards */
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #f97316;
+  outline-color: rgba(249, 115, 22, 0.25);
+}
+
+/* Statistika kartalari */
 html.light .stat-card {
   background: linear-gradient(145deg, #ffffff, #fff4e9);
   border-color: var(--border);
@@ -300,13 +325,17 @@ html.light::-webkit-scrollbar-track {
   background: #fff4e9;
 }
 
-/* Selection */
+html.light::-webkit-scrollbar-thumb {
+  background: #f97316;
+}
+
+/* Tanlangan matn */
 html.light ::selection {
   background: #f97316;
   color: #ffffff;
 }
 
-/* Smooth theme transitions */
+/* Mavzu almashish animatsiyasi */
 body,
 header,
 main,
@@ -325,4 +354,3 @@ select {
     color 0.25s ease,
     border-color 0.25s ease;
 }
-

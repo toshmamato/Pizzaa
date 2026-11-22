@@ -26,22 +26,22 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/[0.07] bg-[#0c0c0c]/95 backdrop-blur-2xl">
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 md:px-8">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-orange-400 to-orange-700">
-            <Pizza size={23} className="text-white" />
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-3 sm:h-20 sm:gap-3 sm:px-4 md:px-8">
+        <Link href="/" className="flex min-w-0 shrink items-center gap-1.5 sm:gap-2">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br sm:h-10 sm:w-10 from-orange-400 to-orange-700">
+            <Pizza size={20} className="sm:hidden text-white" /><Pizza size={23} className="text-white" />
           </div>
           <div>
-            <div className="text-lg font-black text-white">
+            <div className="text-base font-black text-white sm:text-lg">
               TURBO<span className="text-orange-500">PIZZA</span>
             </div>
-            <div className="text-[8px] font-bold uppercase tracking-[0.2em] text-zinc-500">
+            <div className="hidden text-[8px] font-bold uppercase tracking-[0.2em] text-zinc-500 min-[400px]:block">
               Premium taste experience
             </div>
           </div>
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-4">
           <Link href="/" className="hidden text-sm font-semibold text-zinc-300 transition hover:text-orange-400 sm:block">
             Bosh sahifa
           </Link>
@@ -53,13 +53,13 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setCategoryOpen(!categoryOpen)}
-              className={`flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-bold transition ${
+              className={`flex items-center gap-2 rounded-xl border px-2 py-2 text-xs font-bold transition sm:px-4 sm:py-3 sm:text-sm ${
                 categoryOpen
                   ? "border-orange-500 bg-orange-500/10 text-orange-400"
                   : "border-white/10 text-white hover:border-orange-500/50"
               }`}
             >
-              Kategoriyalar
+              <span className="hidden sm:inline">Kategoriyalar</span><span className="sm:hidden">Menu</span>
               <ChevronDown
                 size={16}
                 className={`transition ${categoryOpen ? "rotate-180" : ""}`}
@@ -95,12 +95,12 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex min-w-0 shrink items-center gap-1.5 sm:gap-2">
           <Link
             href="/favorites"
             aria-label="Sevimlilar"
             title="Sevimlilar"
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-zinc-300 transition hover:border-red-500/40 hover:text-red-400"
+            className="relative flex h-9 w-9 items-center justify-center rounded-xl sm:h-10 sm:w-10 border border-white/10 bg-white/5 text-zinc-300 transition hover:border-red-500/40 hover:text-red-400"
           >
             <Heart size={19} />
             {favorites.length > 0 && (
@@ -113,7 +113,7 @@ export default function Navbar() {
           <button
             onClick={() => setDarkMode(!darkMode)}
             aria-label="Mavzuni almashtirish"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-zinc-300 transition hover:text-orange-400"
+            className="flex h-9 w-9 items-center justify-center rounded-xl sm:h-10 sm:w-10 border border-white/10 bg-white/5 text-zinc-300 transition hover:text-orange-400"
           >
             {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -133,7 +133,7 @@ export default function Navbar() {
                 <button
                   onClick={logout}
                   title="Akkauntdan chiqish"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-zinc-300 hover:text-red-400"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl sm:h-10 sm:w-10 border border-white/10 text-zinc-300 hover:text-red-400"
                 >
                   <LogOut size={18} />
                 </button>
@@ -141,7 +141,7 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={() => setIsAuthOpen(true)}
-                className="flex h-10 items-center gap-2 rounded-xl border border-white/10 px-3 text-sm font-bold text-white transition hover:border-orange-500 hover:text-orange-400"
+                className="flex h-9 items-center gap-1 rounded-xl border border-white/10 px-2 text-xs sm:h-10 sm:gap-2 sm:px-3 sm:text-sm font-bold text-white transition hover:border-orange-500 hover:text-orange-400"
               >
                 <UserRound size={18} />
                 <span className="hidden sm:inline">Kirish</span>
@@ -151,7 +151,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative flex h-10 items-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 px-3 font-bold text-white shadow-lg shadow-orange-600/20"
+            className="relative flex h-9 items-center gap-1 rounded-xl bg-gradient-to-r px-2 text-sm sm:h-10 sm:gap-2 sm:px-3 sm:text-base from-orange-600 to-orange-500 px-3 font-bold text-white shadow-lg shadow-orange-600/20"
           >
             <ShoppingBag size={18} />
             <span className="hidden sm:inline">Savatcha</span>
@@ -166,3 +166,4 @@ export default function Navbar() {
     </header>
   );
 }
+

@@ -62,7 +62,7 @@ export default function Home() {
           <div>
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-400">
               <Sparkles size={16} />
-              Har bir bo'lakda haqiqiy lazzat
+              Har bir bo&apos;lakda haqiqiy lazzat
             </div>
 
             <h1 className="max-w-2xl text-4xl font-black leading-[1.12] tracking-tight min-[400px]:text-5xl sm:text-6xl lg:text-7xl">
@@ -73,7 +73,7 @@ export default function Home() {
 
             <p className="mt-6 max-w-lg text-base leading-7 text-zinc-400 md:text-lg">
               Yangi masalliqlar, haqiqiy mozzarella va maxsus retseptlar.
-              Sevimli taomingizni tanlang, qolganini bizga qo'ying.
+              Sevimli taomingizni tanlang, qolganini bizga qo&apos;ying.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -81,7 +81,7 @@ export default function Home() {
                 href="#menu"
                 className="flex items-center gap-3 rounded-2xl bg-orange-500 px-7 py-4 font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-1 hover:bg-orange-600"
               >
-                Menyuni ko'rish
+                Menyuni ko&apos;rish
                 <ArrowRight size={19} />
               </a>
 
@@ -128,7 +128,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-bold">Issiq va mazali!</p>
-                    <p className="text-xs text-zinc-500">To'g'ridan-to'g'ri pechdan</p>
+                    <p className="text-xs text-zinc-500">To&apos;g&apos;ridan-to&apos;g&apos;ri pechdan</p>
                   </div>
                 </div>
               </div>
@@ -298,7 +298,7 @@ export default function Home() {
                 TurboPizza bilan mazali hayot
               </p>
               <h2 className="max-w-2xl text-3xl font-black md:text-5xl">
-                Bugun o'zingizni mazali taom bilan siylang!
+                Bugun o&apos;zingizni mazali taom bilan siylang!
               </h2>
               <p className="mt-4 text-orange-100">
                 Sevimli taomingizni tanlang va buyurtma bering.
@@ -317,6 +317,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 

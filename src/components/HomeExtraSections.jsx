@@ -69,7 +69,7 @@ export default function HomeExtraSections({ products = [] }) {
                   Sizga <span className="text-orange-500">tavsiya qilamiz</span>
                 </h2>
                 <p className="mt-3 max-w-xl text-sm text-zinc-400">
-                  Menyudan tanlangan mazali taomlarimizni sinab ko'ring.
+                  Menyudan tanlangan mazali taomlarimizni sinab ko&apos;ring.
                 </p>
               </div>
               <Link href="#menu" className="flex items-center gap-2 text-sm font-bold text-orange-400 transition hover:gap-3">
@@ -100,11 +100,11 @@ export default function HomeExtraSections({ products = [] }) {
                   Maxsus <span className="text-orange-500">kombo</span> takliflar
                 </h2>
                 <p className="mt-3 text-sm text-zinc-400">
-                  Pizza, ichimlik va gazaklar — barchasi bir to'plamda.
+                  Pizza, ichimlik va gazaklar — barchasi bir to&apos;plamda.
                 </p>
               </div>
               <Link href="#menu" className="flex items-center gap-2 text-sm font-bold text-orange-400 transition hover:gap-3">
-                Menyuni ko'rish <ArrowRight size={17} />
+                Menyuni ko&apos;rish <ArrowRight size={17} />
               </Link>
             </div>
 
@@ -151,7 +151,7 @@ export default function HomeExtraSections({ products = [] }) {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-[0.25em] text-orange-400">
-              Buyurtmangiz yo'lda
+              Buyurtmangiz yo&apos;lda
             </span>
             <h2 className="mt-3 text-3xl font-black sm:text-4xl">
               Eshigingizgacha <span className="text-orange-500">yetkazamiz</span>
@@ -227,13 +227,13 @@ export default function HomeExtraSections({ products = [] }) {
             </div>
             <div className="flex-1">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-orange-400">Sizning fikringiz muhim</span>
-              <h2 className="mt-2 text-2xl font-black sm:text-3xl">Taassurotingizni biz bilan bo'lishing</h2>
+              <h2 className="mt-2 text-2xl font-black sm:text-3xl">Taassurotingizni biz bilan bo&apos;lishing</h2>
               <p className="mt-3 text-sm leading-6 text-zinc-400">
                 Buyurtmangizdan keyin fikr va takliflaringizni qoldiring. Haqiqiy mijozlar izohlari shu yerda namoyish etiladi.
               </p>
             </div>
             <Link href="#menu" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-600">
-              <Sparkles size={17} /> Menyuga o'tish
+              <Sparkles size={17} /> Menyuga o&apos;tish
             </Link>
           </div>
         </div>
@@ -246,13 +246,13 @@ export default function HomeExtraSections({ products = [] }) {
           <div className="relative z-10 max-w-2xl">
             <span className="text-xs font-black uppercase tracking-[0.25em] text-white/70">TurboPizza maxsus takliflari</span>
             <h2 className="mt-4 text-3xl font-black leading-tight text-white sm:text-5xl">
-              Yaqinlaringiz bilan mazali lahzalarni baham ko'ring!
+              Yaqinlaringiz bilan mazali lahzalarni baham ko&apos;ring!
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-6 text-white/80">
-              Kombo to'plamlarimizni ko'ring va o'zingizga mos taomlarni tanlang.
+              Kombo to&apos;plamlarimizni ko&apos;ring va o&apos;zingizga mos taomlarni tanlang.
             </p>
             <Link href="#menu" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-black text-orange-700 transition hover:-translate-y-1 hover:shadow-xl">
-              Takliflarni ko'rish <ArrowRight size={18} />
+              Takliflarni ko&apos;rish <ArrowRight size={18} />
             </Link>
           </div>
         </div>
@@ -260,3 +260,6 @@ export default function HomeExtraSections({ products = [] }) {
     </>
   );
 }
+
+
+

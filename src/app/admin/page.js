@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import {
   LayoutDashboard,
   ShoppingBag,
@@ -139,6 +140,7 @@ export default function AdminPage() {
     const savedToken = localStorage.getItem("turbo_token");
 
     if (!savedToken) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setChecking(false);
       setToken("");
       setAuthorized(false);
@@ -150,6 +152,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setChecking(true);
       loadAll();
     }
@@ -295,12 +298,12 @@ export default function AdminPage() {
           >
             Akkauntga kirish
           </button>
-          <a
+          <Link
             href="/"
             className="mt-5 inline-block text-sm text-gray-400 hover:text-white"
           >
             Bosh sahifaga qaytish
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -347,7 +350,7 @@ export default function AdminPage() {
 
       <div className="flex min-h-screen">
         <aside className="hidden w-64 shrink-0 border-r border-white/10 bg-[#101010] p-5 md:flex md:flex-col">
-          <a href="/" className="mb-12 flex items-center gap-3">
+          <Link href="/" className="mb-12 flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500 text-xl font-black text-black">
               T
             </div>
@@ -359,7 +362,7 @@ export default function AdminPage() {
                 Administration
               </div>
             </div>
-          </a>
+          </Link>
 
           <div className="mb-3 px-3 text-[10px] font-bold uppercase tracking-[2px] text-gray-600">
             Asosiy menyu
@@ -408,7 +411,7 @@ export default function AdminPage() {
         </aside>
 
         <main className="min-w-0 flex-1">
-          <header className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-[#0b0b0b]/90 px-5 py-4 backdrop-blur-xl md:px-9">
+          <header className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-[#0b0b0b]/90 px-3 py-3 backdrop-blur-xl sm:px-5 sm:py-4 md:px-9">
             <div>
               <div className="text-xs text-gray-500">TurboPizza / Admin</div>
               <h1 className="mt-1 text-xl font-bold">
@@ -434,7 +437,7 @@ export default function AdminPage() {
               </div>
             </div>
 
-            <div className="flex w-full gap-2 overflow-x-auto md:hidden">
+            <div className="flex w-full gap-2 overflow-x-auto pb-1 md:hidden">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -444,7 +447,7 @@ export default function AdminPage() {
                       setActiveTab(item.id);
                       setSearch("");
                     }}
-                    className={`flex shrink-0 items-center gap-2 rounded-xl px-3 py-2 text-xs ${
+                    className={`flex shrink-0 items-center gap-2 rounded-xl px-3 py-2.5 text-xs ${
                       activeTab === item.id
                         ? "bg-orange-500 text-black"
                         : "bg-white/5 text-gray-400"
@@ -458,7 +461,7 @@ export default function AdminPage() {
             </div>
           </header>
 
-          <div className="p-5 md:p-9">
+          <div className="p-3 sm:p-5 md:p-9">
             {error && (
               <div className="mb-6 flex items-center justify-between gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-300">
                 <span>
@@ -507,7 +510,7 @@ export default function AdminPage() {
                 <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-[#141414] p-6 lg:col-span-2">
                     <div className="mb-5 flex items-center justify-between">
-                      <h3 className="font-bold">So'nggi buyurtmalar</h3>
+                      <h3 className="font-bold">So&apos;nggi buyurtmalar</h3>
                       <button
                         onClick={() => setActiveTab("orders")}
                         className="text-xs font-semibold text-orange-400"
@@ -518,7 +521,7 @@ export default function AdminPage() {
 
                     {orders.slice(0, 5).length === 0 ? (
                       <p className="py-8 text-center text-sm text-gray-500">
-                        Hozircha buyurtmalar yo'q.
+                        Hozircha buyurtmalar yo&apos;q.
                       </p>
                     ) : (
                       <div className="space-y-4">
@@ -641,7 +644,7 @@ export default function AdminPage() {
                         <th className="p-4">Mijoz</th>
                         <th className="p-4">Manzil</th>
                         <th className="p-4">Summa</th>
-                        <th className="p-4">To'lov</th>
+                        <th className="p-4">To&apos;lov</th>
                         <th className="p-4">Holati</th>
                       </tr>
                     </thead>
@@ -708,7 +711,7 @@ export default function AdminPage() {
                   <div>
                     <h2 className="text-2xl font-bold">Mahsulotlar</h2>
                     <p className="mt-1 text-sm text-gray-500">
-                      Pizzalarni qo'shing, tahrirlang yoki o'chiring.
+                      Pizzalarni qo&apos;shing, tahrirlang yoki o&apos;chiring.
                     </p>
                   </div>
                   <button
@@ -716,7 +719,7 @@ export default function AdminPage() {
                     className="flex items-center gap-2 rounded-xl bg-orange-500 px-4 py-3 text-sm font-bold text-black transition hover:bg-orange-400"
                   >
                     <Plus size={18} />
-                    Pizza qo'shish
+                    Pizza qo&apos;shish
                   </button>
                 </div>
 
@@ -736,7 +739,7 @@ export default function AdminPage() {
                       key={product.id}
                       className="overflow-hidden rounded-2xl border border-white/10 bg-[#141414]"
                     >
-                      <div className="h-48 overflow-hidden bg-white/5">
+                      <div className="h-40 overflow-hidden bg-white/5 sm:h-48">
                         {product.image && (
                           <img
                             src={product.image}
@@ -745,7 +748,7 @@ export default function AdminPage() {
                           />
                         )}
                       </div>
-                      <div className="p-5">
+                      <div className="p-4 sm:p-5">
                         <div className="flex items-start justify-between gap-3">
                           <div>
                             <h3 className="font-bold">{product.name}</h3>
@@ -793,7 +796,7 @@ export default function AdminPage() {
                 <div className="mb-6">
                   <h2 className="text-2xl font-bold">Mijozlar</h2>
                   <p className="mt-1 text-sm text-gray-500">
-                    TurboPizza foydalanuvchilari ro'yxati.
+                    TurboPizza foydalanuvchilari ro&apos;yxati.
                   </p>
                 </div>
 
@@ -856,7 +859,7 @@ export default function AdminPage() {
               <section>
                 <h2 className="text-2xl font-bold">Sozlamalar</h2>
                 <p className="mt-2 text-sm text-gray-500">
-                  Admin panel va loyiha ma'lumotlari.
+                  Admin panel va loyiha ma&apos;lumotlari.
                 </p>
                 <div className="mt-6 max-w-xl rounded-2xl border border-white/10 bg-[#141414] p-6">
                   <div className="flex items-center gap-3">
@@ -893,9 +896,9 @@ export default function AdminPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-sm">
           <form
             onSubmit={saveProduct}
-            className="my-auto w-full max-w-lg rounded-3xl border border-white/10 bg-[#171717] p-6 shadow-2xl"
+            className="my-auto w-full max-w-lg rounded-2xl border border-white/10 bg-[#171717] p-4 shadow-2xl sm:rounded-3xl sm:p-6"
           >
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-5 flex items-center justify-between gap-3 sm:mb-6">
               <h2 className="text-xl font-bold">
                 {editingProduct ? "Pizzani tahrirlash" : "Yangi pizza"}
               </h2>
@@ -948,10 +951,10 @@ export default function AdminPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-xs text-gray-400">
-                    Narxi (so'm)
+                    Narxi (so&apos;m)
                   </label>
                   <input
                     required
@@ -983,7 +986,7 @@ export default function AdminPage() {
                     }
                     className="w-full rounded-xl border border-white/10 bg-[#222] px-3 py-3 text-sm outline-none focus:border-orange-500"
                   >
-                    <option>Go'shtli</option>
+                    <option>Go&apos;shtli</option>
                     <option>Klassik</option>
                     <option>Pishloqli</option>
                     <option>Achchiq</option>
@@ -1016,7 +1019,7 @@ export default function AdminPage() {
               type="submit"
               className="mt-7 w-full rounded-xl bg-orange-500 py-3.5 font-bold text-black transition hover:bg-orange-400"
             >
-              {editingProduct ? "O'zgarishlarni saqlash" : "Pizza qo'shish"}
+              {editingProduct ? "O'zgarishlarni saqlash" : "Pizza qo&apos;shish"}
             </button>
           </form>
         </div>

@@ -40,7 +40,7 @@ export default function Footer() {
               href="/#menu"
               className="mt-7 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-600/15 transition hover:-translate-y-1 hover:shadow-orange-500/25"
             >
-              Menyuni ko'rish
+              Menyuni ko&apos;rish
               <ArrowUpRight size={17} />
             </Link>
           </div>
@@ -110,7 +110,7 @@ export default function Footer() {
                   <CreditCard size={19} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-zinc-200">To'lov usullari</p>
+                  <p className="text-sm font-bold text-zinc-200">To&apos;lov usullari</p>
                   <p className="mt-1 text-xs leading-5 text-zinc-500">
                     Naqd pul, Click / Payme yoki kuryer terminali.
                   </p>
@@ -124,7 +124,7 @@ export default function Footer() {
                 <div>
                   <p className="text-sm font-bold text-zinc-200">Buyurtma holati</p>
                   <p className="mt-1 text-xs leading-5 text-zinc-500">
-                    Shaxsiy kabinetingizda buyurtmalaringiz holatini ko'ring.
+                    Shaxsiy kabinetingizda buyurtmalaringiz holatini ko&apos;ring.
                   </p>
                 </div>
               </div>
@@ -149,3 +149,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+

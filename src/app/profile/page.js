@@ -46,7 +46,6 @@ export default function ProfilePage() {
     if (authLoading) return;
 
     if (!token) {
-      setLoading(false);
       return;
     }
 
@@ -68,7 +67,7 @@ export default function ProfilePage() {
       .finally(() => setLoading(false));
   }, [token, authLoading]);
 
-  if (authLoading || loading) {
+  if (authLoading || (Boolean(token) && loading)) {
     return (
       <main className="flex min-h-[70vh] items-center justify-center bg-[#0c0c0c]">
         <LoaderCircle className="animate-spin text-orange-500" size={38} />
@@ -79,11 +78,11 @@ export default function ProfilePage() {
   if (!user || !token) {
     return (
       <main className="flex min-h-[75vh] items-center justify-center bg-[#0c0c0c] px-4">
-        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[#141414] p-8 text-center">
+        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[#141414] p-5 text-center sm:p-8">
           <UserRound className="mx-auto mb-5 text-orange-500" size={48} />
-          <h1 className="text-2xl font-black text-white">Profilingizga kiring</h1>
+          <h1 className="text-xl font-black text-white sm:text-2xl">Profilingizga kiring</h1>
           <p className="mt-3 text-sm leading-6 text-zinc-500">
-            Shaxsiy profilingiz va buyurtmalar tarixini ko'rish uchun akkauntingizga kiring.
+            Shaxsiy profilingiz va buyurtmalar tarixini ko&apos;rish uchun akkauntingizga kiring.
           </p>
           <button
             onClick={() => setIsAuthOpen(true)}
@@ -103,7 +102,7 @@ export default function ProfilePage() {
   const orders = [...(profile?.orders || [])].reverse();
 
   return (
-    <main className="min-h-screen bg-[#0c0c0c] px-4 py-10 text-white md:px-8">
+    <main className="min-h-screen bg-[#0c0c0c] px-4 py-7 text-white sm:py-10 md:px-8">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/"
@@ -116,7 +115,7 @@ export default function ProfilePage() {
           <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-500">
             TURBOPIZZA ACCOUNT
           </p>
-          <h1 className="mt-3 text-4xl font-black md:text-5xl">
+          <h1 className="mt-3 text-3xl font-black sm:text-4xl md:text-5xl">
             Shaxsiy kabinet
           </h1>
           <p className="mt-3 text-zinc-500">
@@ -130,8 +129,8 @@ export default function ProfilePage() {
           </div>
         )}
 
-        <div className="grid gap-6 lg:grid-cols-[350px_1fr]">
-          <section className="h-fit rounded-3xl border border-white/10 bg-[#141414] p-6">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[minmax(280px,350px)_minmax(0,1fr)]">
+          <section className="h-fit rounded-3xl border border-white/10 bg-[#141414] p-4 sm:p-6">
             <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-orange-400 to-orange-700">
               <UserRound size={38} />
             </div>
@@ -185,9 +184,9 @@ export default function ProfilePage() {
             </div>
 
             {orders.length === 0 ? (
-              <div className="rounded-3xl border border-white/10 bg-[#141414] px-6 py-16 text-center">
+              <div className="rounded-3xl border border-white/10 bg-[#141414] px-4 py-12 text-center sm:px-6 sm:py-16">
                 <Pizza className="mx-auto mb-5 text-orange-500" size={48} />
-                <h3 className="text-xl font-black">Hozircha buyurtmalar yo'q</h3>
+                <h3 className="text-xl font-black">Hozircha buyurtmalar yo&apos;q</h3>
                 <p className="mt-2 text-sm text-zinc-500">
                   Mazali pizzalardan birini tanlab, birinchi buyurtmangizni bering.
                 </p>
@@ -195,7 +194,7 @@ export default function ProfilePage() {
                   href="/#menu"
                   className="mt-6 inline-flex rounded-xl bg-orange-600 px-6 py-3 font-bold text-white hover:bg-orange-500"
                 >
-                  Menyuni ko'rish
+                  Menyuni ko&apos;rish
                 </Link>
               </div>
             ) : (
@@ -207,7 +206,7 @@ export default function ProfilePage() {
                   return (
                     <article
                       key={order.orderId || index}
-                      className="rounded-3xl border border-white/10 bg-[#141414] p-5 md:p-6"
+                      className="rounded-3xl border border-white/10 bg-[#141414] p-4 sm:p-5 md:p-6"
                     >
                       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
                         <div>
@@ -227,7 +226,7 @@ export default function ProfilePage() {
                         {(order.items || []).map((item, itemIndex) => (
                           <div key={item.productId || itemIndex} className="flex justify-between gap-3 text-sm">
                             <span className="text-zinc-300">
-                              {item.name} <span className="text-zinc-500">× {item.quantity}</span>
+                              {item.name} <span className="text-zinc-500">Г— {item.quantity}</span>
                             </span>
                             <span className="shrink-0 font-semibold">
                               {money(item.subtotal)}
@@ -242,7 +241,7 @@ export default function ProfilePage() {
                           <p className="mt-1 text-sm text-zinc-300">
                             {order.date
                               ? new Date(order.date).toLocaleString("uz-UZ")
-                              : "—"}
+                              : "вЂ”"}
                           </p>
                           <p className="mt-2 text-xs text-zinc-500">
                             {order.address || "Manzil ko'rsatilmagan"}
@@ -250,7 +249,7 @@ export default function ProfilePage() {
                         </div>
                         <div className="text-right">
                           <p className="text-xs text-zinc-500">Jami</p>
-                          <p className="mt-1 text-xl font-black text-orange-400">
+                          <p className="mt-1 text-lg font-black text-orange-400 sm:text-xl">
                             {money(order.totalAmount)}
                           </p>
                         </div>
@@ -266,3 +265,4 @@ export default function ProfilePage() {
     </main>
   );
 }
+

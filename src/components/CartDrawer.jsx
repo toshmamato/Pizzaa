@@ -78,17 +78,17 @@ export default function CartDrawer() {
     }
   };
 
-  const fieldClass = "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-orange-500/70 focus:bg-white/[0.07]";
+  const fieldClass = "w-full min-w-0 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-3 text-sm sm:px-4 sm:py-3.5 text-white outline-none transition placeholder:text-zinc-600 focus:border-orange-500/70 focus:bg-white/[0.07]";
 
   return (
     <div
-      className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex justify-end overflow-hidden bg-black/75 backdrop-blur-sm"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) closeCart();
       }}
     >
-      <aside className="flex h-full w-full max-w-lg flex-col border-l border-white/10 bg-[#111111] text-white shadow-2xl animate-in slide-in-from-right duration-300">
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+      <aside className="flex h-[100dvh] max-h-[100dvh] w-full max-w-lg flex-col border-l border-white/10 bg-[#111111] text-white shadow-2xl animate-in slide-in-from-right duration-300">
+        <div className="flex items-center justify-between border-b border-white/10 px-4 py-4 sm:px-6 sm:py-5">
           <div>
             <div className="flex items-center gap-2">
               <ShoppingBag className="text-orange-500" size={21} />
@@ -123,7 +123,7 @@ export default function CartDrawer() {
             <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-orange-500/10">
               <Pizza size={48} className="text-orange-500" />
             </div>
-            <h3 className="text-2xl font-black">Savatcha bo'sh</h3>
+            <h3 className="text-2xl font-black">Savatcha bo&apos;sh</h3>
             <p className="mt-3 text-sm text-zinc-500">
               Hali mazali pizza tanlamadingiz. Menyudan sevimli pitsangizni tanlang!
             </p>
@@ -136,7 +136,7 @@ export default function CartDrawer() {
           </div>
         ) : (
           <>
-            <div className="flex-1 space-y-3 overflow-y-auto p-5">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain p-3 sm:p-5">
               <div className="mb-5 flex items-center justify-between">
                 <h3 className="font-bold">Tanlangan mahsulotlar</h3>
                 <button
@@ -150,12 +150,12 @@ export default function CartDrawer() {
               {cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-3"
+                  className="flex min-w-0 gap-2 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-2.5 sm:gap-4 sm:p-3"
                 >
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="h-24 w-24 rounded-xl object-cover"
+                    className="h-20 w-20 shrink-0 rounded-xl object-cover sm:h-24 sm:w-24"
                   />
                   <div className="flex min-w-0 flex-1 flex-col justify-between py-1">
                     <div>
@@ -182,13 +182,13 @@ export default function CartDrawer() {
                       </button>
                     </div>
                   </div>
-                  <div className="self-center text-right text-sm font-black">
+                  <div className="max-w-[100px] shrink-0 self-center break-words text-right text-xs font-black sm:max-w-none sm:text-sm">
                     {money(item.price * item.quantity)}
                   </div>
                 </div>
               ))}
 
-              <form onSubmit={handleSubmit} className="space-y-4 pt-6">
+              <form onSubmit={handleSubmit} className="space-y-3 pt-5 sm:space-y-4 sm:pt-6">
                 <div className="mb-2">
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">Checkout</p>
                   <h3 className="mt-1 text-xl font-black">Yetkazib berish</h3>
@@ -261,7 +261,7 @@ export default function CartDrawer() {
                   </p>
                 )}
 
-                <div className="space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <div className="space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4">
                   <div className="flex items-center justify-between text-sm text-zinc-400">
                     <span>Mahsulotlar</span>
                     <span>{money(totalPrice)}</span>
@@ -272,14 +272,14 @@ export default function CartDrawer() {
                   </div>
                   <div className="flex items-center justify-between border-t border-white/10 pt-3">
                     <span className="font-bold">Jami</span>
-                    <span className="text-xl font-black text-orange-400">{money(totalPrice)}</span>
+                    <span className="text-lg font-black text-orange-400 sm:text-xl">{money(totalPrice)}</span>
                   </div>
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 py-4 font-black shadow-lg shadow-orange-600/20 transition hover:-translate-y-0.5 hover:shadow-orange-500/30 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 py-3.5 font-black shadow-lg sm:py-4 shadow-orange-600/20 transition hover:-translate-y-0.5 hover:shadow-orange-500/30 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {loading ? (
                     <><LoaderCircle size={20} className="animate-spin"/> Yuborilmoqda...</>
@@ -288,7 +288,7 @@ export default function CartDrawer() {
                   )}
                 </button>
                 <p className="pb-3 text-center text-[11px] text-zinc-600">
-                  Buyurtma berish orqali ma'lumotlaringizni yuborishga rozilik bildirasiz.
+                  Buyurtma berish orqali ma&apos;lumotlaringizni yuborishga rozilik bildirasiz.
                 </p>
               </form>
             </div>
@@ -298,3 +298,4 @@ export default function CartDrawer() {
     </div>
   );
 }
+

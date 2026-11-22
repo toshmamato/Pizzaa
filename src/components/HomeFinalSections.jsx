@@ -13,8 +13,8 @@ const questions = [
     a: "Yetkazib berish narxi buyurtma manzili va shartlariga bog'liq. Buyurtmani rasmiylashtirishda aniqlashtiring."
   },
   {
-    q: "Qanday to'lov qilish mumkin?",
-    a: "Buyurtma berish vaqtida mavjud to'lov usullari bo'yicha ma'lumot olinadi."
+    q: "Qanday to&apos;lov qilish mumkin?",
+    a: "Buyurtma berish vaqtida mavjud to&apos;lov usullari bo'yicha ma&apos;lumot olinadi."
   },
   {
     q: "Buyurtmani bekor qilish mumkinmi?",
@@ -53,10 +53,10 @@ export default function HomeFinalSections({ products = [] }) {
               Savollaringiz bormi?
             </span>
             <h2 className="mt-4 text-3xl font-black sm:text-4xl">
-              Ko'p so'raladigan <span className="text-orange-500">savollar</span>
+              Ko&apos;p so&apos;raladigan <span className="text-orange-500">savollar</span>
             </h2>
             <p className="mt-4 max-w-md text-sm leading-7 text-zinc-400">
-              TurboPizza buyurtmalari, to'lov va yetkazib berish haqida kerakli javoblarni shu yerdan topishingiz mumkin.
+              TurboPizza buyurtmalari, to&apos;lov va yetkazib berish haqida kerakli javoblarni shu yerdan topishingiz mumkin.
             </p>
             <div className="mt-8 flex items-center gap-3 text-orange-400">
               <HelpCircle size={25} />
@@ -96,18 +96,18 @@ export default function HomeFinalSections({ products = [] }) {
               Qulay va tushunarli
             </span>
             <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-              To'lov <span className="text-orange-500">haqida</span>
+              To&apos;lov <span className="text-orange-500">haqida</span>
             </h2>
             <p className="mt-3 text-sm text-zinc-400">
-              Buyurtma vaqtida mavjud to'lov usullari haqida ma'lumot olasiz.
+              Buyurtma vaqtida mavjud to&apos;lov usullari haqida ma&apos;lumot olasiz.
             </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
             {[
-              { icon: Banknote, title: "Naqd pul", text: "Naqd to'lov imkoniyati mavjudligini buyurtma vaqtida aniqlashtiring." },
-              { icon: CreditCard, title: "Bank kartasi", text: "Karta orqali to'lov imkoniyati haqida buyurtma rasmiylashtirishda bilib oling." },
-              { icon: Smartphone, title: "Onlayn to'lov", text: "Onlayn to'lov mavjud bo'lsa, tegishli usul buyurtma jarayonida ko'rsatiladi." }
+              { icon: Banknote, title: "Naqd pul", text: "Naqd to&apos;lov imkoniyati mavjudligini buyurtma vaqtida aniqlashtiring." },
+              { icon: CreditCard, title: "Bank kartasi", text: "Karta orqali to&apos;lov imkoniyati haqida buyurtma rasmiylashtirishda bilib oling." },
+              { icon: Smartphone, title: "Onlayn to&apos;lov", text: "Onlayn to&apos;lov mavjud bo'lsa, tegishli usul buyurtma jarayonida ko'rsatiladi." }
             ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="rounded-3xl border border-white/10 bg-[#191919] p-7 transition hover:-translate-y-1 hover:border-orange-500/40">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-400">
@@ -161,7 +161,7 @@ export default function HomeFinalSections({ products = [] }) {
             <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <span className="text-sm font-bold uppercase tracking-[.25em] text-orange-400">
-                  Bizning ta'mlar olami
+                  Bizning ta&apos;mlar olami
                 </span>
                 <h2 className="mt-3 text-3xl font-black sm:text-4xl">
                   TurboPizza <span className="text-orange-500">galereyasi</span>
@@ -186,7 +186,7 @@ export default function HomeFinalSections({ products = [] }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"/>
                   <div className="absolute bottom-0 left-0 p-4">
                     <p className="font-bold text-white">{product.name}</p>
-                    <p className="mt-1 text-xs text-orange-300">Batafsil ko'rish</p>
+                    <p className="mt-1 text-xs text-orange-300">Batafsil ko&apos;rish</p>
                   </div>
                 </a>
               ))}
@@ -218,3 +218,5 @@ export default function HomeFinalSections({ products = [] }) {
     </>
   );
 }
+
+

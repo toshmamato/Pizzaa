@@ -24,6 +24,7 @@ export function StoreProvider({ children }) {
       const savedTheme = localStorage.getItem("turbo_theme");
 
       if (savedTheme !== null) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setDarkMode(savedTheme === "dark");
       }
     } catch {
@@ -49,6 +50,7 @@ export function StoreProvider({ children }) {
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("turbo_favorites") || "[]");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFavorites(Array.isArray(saved) ? saved.map(String) : []);
     } catch {
       setFavorites([]);
@@ -81,6 +83,7 @@ export function StoreProvider({ children }) {
     const savedToken = localStorage.getItem("turbo_token");
 
     if (!savedToken) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAuthLoading(false);
       return;
     }
@@ -198,3 +201,5 @@ export function StoreProvider({ children }) {
 }
 
 export const useStore = () => useContext(StoreContext);
+
+

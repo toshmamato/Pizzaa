@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function FavoritesPage() {
   );
 
   return (
-    <main className="min-h-screen bg-[#0c0c0c] px-4 py-12 text-white md:px-8">
+    <main className="min-h-screen bg-[#0c0c0c] px-4 py-8 text-white sm:py-12 md:px-8">
       <div className="mx-auto max-w-7xl">
         <Link
           href="/"
@@ -38,12 +38,12 @@ export default function FavoritesPage() {
           Bosh sahifa
         </Link>
 
-        <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-500/10 text-red-400">
+        <div className="mb-8 flex items-center gap-3 sm:mb-10 sm:gap-4">
+          <div className="flex h-12 w-12 shrink-0 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-red-500/10 text-red-400">
             <Heart size={28} />
           </div>
           <div>
-            <h1 className="text-3xl font-black md:text-4xl">Sevimlilarim</h1>
+            <h1 className="text-xl font-black sm:text-2xl sm:text-3xl md:text-4xl">Sevimlilarim</h1>
             <p className="mt-1 text-sm text-zinc-500">
               Siz saqlagan mahsulotlar: {favorites.length} ta
             </p>
@@ -59,10 +59,10 @@ export default function FavoritesPage() {
             {error}
           </div>
         ) : favoriteProducts.length === 0 ? (
-          <div className="rounded-3xl border border-white/10 bg-[#151515] px-6 py-20 text-center">
+          <div className="rounded-3xl border border-white/10 bg-[#151515] px-4 py-14 text-center sm:px-6 sm:py-20">
             <Heart size={54} className="mx-auto text-zinc-600" />
-            <h2 className="mt-5 text-2xl font-black">
-              Hozircha sevimlilar yo'q
+            <h2 className="mt-5 text-xl font-black sm:text-2xl">
+              Hozircha sevimlilar yo&apos;q
             </h2>
             <p className="mt-3 text-sm text-zinc-500">
               Yoqtirgan mahsulotlaringizdagi yurakchani bosing.
@@ -71,11 +71,11 @@ export default function FavoritesPage() {
               href="/#menu"
               className="mt-7 inline-flex rounded-xl bg-orange-500 px-6 py-3 font-bold text-white transition hover:bg-orange-600"
             >
-              Menyani ko'rish
+              Menyani ko&apos;rish
             </Link>
           </div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {favoriteProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
