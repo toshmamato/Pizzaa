@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -54,18 +54,18 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#0c0c0c] text-white">
-      <section className="relative overflow-hidden px-4 pb-16 pt-8 md:pb-24 md:pt-16">
+      <section className="relative overflow-hidden px-4 pb-12 pt-8 sm:pb-16 md:pb-24 md:pt-16">
         <div className="absolute -right-20 -top-32 h-96 w-96 rounded-full bg-orange-600/15 blur-[110px]" />
         <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-red-600/10 blur-[100px]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-400">
               <Sparkles size={16} />
               Har bir bo'lakda haqiqiy lazzat
             </div>
 
-            <h1 className="max-w-2xl text-5xl font-black leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-2xl text-4xl font-black leading-[1.12] tracking-tight min-[400px]:text-5xl sm:text-6xl lg:text-7xl">
               Mazali lahzalar
               <span className="block text-orange-500">TurboPizza</span>
               bilan boshlanadi!
@@ -96,7 +96,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-8">
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-5 border-t sm:mt-12 sm:gap-8 border-white/10 pt-8">
               <div>
                 <p className="text-2xl font-black text-orange-500">100%</p>
                 <p className="mt-1 text-xs text-zinc-500">Yangi masalliqlar</p>
@@ -114,14 +114,14 @@ export default function Home() {
 
           <div className="hero-visual relative mx-auto w-full max-w-xl">
             <div className="absolute inset-8 rounded-full bg-orange-500/20 blur-[80px]" />
-            <div className="relative rounded-[40px] border border-white/10 bg-gradient-to-br from-zinc-800 to-zinc-950 p-4 shadow-2xl md:p-7">
+            <div className="relative rounded-3xl border sm:rounded-[40px] border-white/10 bg-gradient-to-br from-zinc-800 to-zinc-950 p-4 shadow-2xl md:p-7">
               <img
                 src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=1000&q=90"
                 alt="TurboPizza"
                 className="hero-pizza-image aspect-square w-full rounded-[30px] object-cover"
               />
 
-              <div className="absolute -bottom-5 -left-3 rounded-2xl border border-white/10 bg-[#191919] p-4 shadow-2xl md:-left-8">
+              <div className="absolute -bottom-4 left-2 sm:-bottom-5 sm:-left-8 rounded-2xl border border-white/10 bg-[#191919] p-4 shadow-2xl md:-left-8">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/15 text-orange-400">
                     <Flame size={25} />
@@ -133,7 +133,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute -right-2 top-8 rounded-2xl border border-orange-500/30 bg-[#171717] px-4 py-3 shadow-xl md:-right-6">
+              <div className="absolute right-2 top-4 sm:-right-6 sm:top-8 rounded-2xl border border-orange-500/30 bg-[#171717] px-4 py-3 shadow-xl md:-right-6">
                 <div className="flex items-center gap-2 text-orange-400">
                   <Star size={17} fill="currentColor" />
                   <span className="font-bold">Premium sifat</span>
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       <section id="about" className="border-y border-white/5 bg-[#121212] px-4 py-8">
-        <div className="mx-auto grid max-w-7xl gap-7 sm:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3 md:gap-7">
           {[
             {
               icon: ChefHat,
@@ -176,7 +176,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="menu" className="mx-auto max-w-7xl px-4 py-20">
+      <section id="menu" className="mx-auto max-w-7xl px-4 py-12 sm:py-16 md:py-20">
         <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <div className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-orange-500">
@@ -215,7 +215,7 @@ export default function Home() {
         </div>
 
         {loading ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
             {[1, 2, 3, 4].map((n) => (
               <div key={n} className="h-96 animate-pulse rounded-3xl bg-zinc-800/60" />
             ))}
@@ -233,7 +233,7 @@ export default function Home() {
               <p className="mb-6 text-sm text-zinc-500">
                 Qidiruv natijalari: {searchedProducts.length} ta mahsulot
               </p>
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6">
                 {searchedProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
@@ -255,7 +255,7 @@ export default function Home() {
 
               return (
                 <section key={category.slug}>
-                  <div className="mb-7 flex items-center justify-between gap-4">
+                  <div className="mb-7 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                     <div>
                       <h3 className="text-2xl font-black md:text-3xl">
                         {category.name}
@@ -266,14 +266,14 @@ export default function Home() {
                     </div>
                     <Link
                       href={`/category/${category.slug}`}
-                      className="flex shrink-0 items-center gap-2 rounded-xl border border-orange-500/30 px-4 py-3 text-sm font-bold text-orange-400 transition hover:bg-orange-500 hover:text-white"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl border border-orange-500/30 px-4 py-3 text-sm font-bold text-orange-400 transition hover:bg-orange-500 hover:text-white sm:w-auto"
                     >
                       Barchasi
                       <ArrowRight size={17} />
                     </Link>
                   </div>
 
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6 xl:grid-cols-5">
                     {categoryProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />
                     ))}
@@ -317,6 +317,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 

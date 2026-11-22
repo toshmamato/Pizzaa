@@ -1,4 +1,5 @@
-﻿"use client";
+﻿
+"use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
 
@@ -7,6 +8,7 @@ const StoreContext = createContext(null);
 export function StoreProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [darkMode, setDarkMode] = useState(true);
+  const [themeReady, setThemeReady] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [user, setUser] = useState(null);
@@ -16,10 +18,34 @@ export function StoreProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
   const [favoritesReady, setFavoritesReady] = useState(false);
 
+  // Theme settings
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+    try {
+      const savedTheme = localStorage.getItem("turbo_theme");
 
+      if (savedTheme !== null) {
+        setDarkMode(savedTheme === "dark");
+      }
+    } catch {
+      setDarkMode(true);
+    } finally {
+      setThemeReady(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!themeReady) return;
+
+    document.documentElement.classList.toggle("dark", darkMode);
+    document.documentElement.classList.toggle("light", !darkMode);
+    document.documentElement.style.colorScheme = darkMode ? "dark" : "light";
+
+    try {
+      localStorage.setItem("turbo_theme", darkMode ? "dark" : "light");
+    } catch {}
+  }, [darkMode, themeReady]);
+
+  // Favorites
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("turbo_favorites") || "[]");
@@ -50,6 +76,7 @@ export function StoreProvider({ children }) {
   const isFavorite = (productId) =>
     favorites.includes(String(productId));
 
+  // Authentication
   useEffect(() => {
     const savedToken = localStorage.getItem("turbo_token");
 
@@ -97,6 +124,7 @@ export function StoreProvider({ children }) {
     }
   };
 
+  // Cart
   const addToCart = (product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
@@ -128,6 +156,7 @@ export function StoreProvider({ children }) {
   const clearCart = () => setCart([]);
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -136,13 +165,31 @@ export function StoreProvider({ children }) {
   return (
     <StoreContext.Provider
       value={{
-        cart, addToCart, updateQuantity, clearCart,
-        totalItems, totalPrice,
-        darkMode, setDarkMode,
-        isCartOpen, setIsCartOpen,
-        isAuthOpen, setIsAuthOpen,
-        user, token, login, logout, authLoading,
-        favorites, toggleFavorite, isFavorite,
+        cart,
+        addToCart,
+        updateQuantity,
+        clearCart,
+        totalItems,
+        totalPrice,
+
+        darkMode,
+        setDarkMode,
+
+        isCartOpen,
+        setIsCartOpen,
+
+        isAuthOpen,
+        setIsAuthOpen,
+
+        user,
+        token,
+        login,
+        logout,
+        authLoading,
+
+        favorites,
+        toggleFavorite,
+        isFavorite,
       }}
     >
       {children}
